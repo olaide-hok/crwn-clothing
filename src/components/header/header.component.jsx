@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.components';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
@@ -41,4 +41,4 @@ const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
     hidden
 });
 
-export default connect()(Header);
+export default connect(mapStateToProps)(Header);

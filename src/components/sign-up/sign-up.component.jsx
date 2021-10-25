@@ -1,7 +1,6 @@
 import React from 'react';
 
 import FormInput from '../form-input/form-input.component';
-
 import CustomButton from '../custom-button/custom-button.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
@@ -44,19 +43,18 @@ class SignUp extends React.Component {
                 confirmPassword: ''
             });
         } catch (error) {
-            console.error(error);
-            
+            console.error(error); 
         }
     };
 
-    handleChange = evvent => {
+    handleChange = event => {
         const { name, value } = event.target;
         
-        this.setState({ [name]: value});
+        this.setState({ [name]: value });
     };
 
     render() {
-        return(
+        const { displayName, email, password, confirmPassword } = this.state;        return(
             <div className='sign-up'>
                 <h2 className='title'>I do not have a account</h2>
                 <span>Sign up eith your email and password</span>
@@ -87,17 +85,16 @@ class SignUp extends React.Component {
                 />
                 <FormInput
                     type='password'
-                    name='password'
+                    name='confirmPassword'
                     value={confirmPassword}
                     onChange={this.handleChange}
                     label='Confirm Password'
                     required
                 />
-                <CustomButton type='submit'> SIGN UP</CustomButton>
+                <CustomButton type='submit'>SIGN UP</CustomButton>
                 </form>
-
             </div>
-        )
+        );
     }
 }
 
